@@ -5,11 +5,20 @@ body {
   justify-content: center;
   height: 100vh;
   background-color: #239ac2;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 /* Wrapper that handles the 3D perspective and flipping */
 .birthdayCardWrapper {
   perspective: 1500px;
+  width: 100%;  /* Ensure the wrapper takes full screen width */
+  height: 100%; /* Ensure the wrapper takes full screen height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 /* Birthday Card */
@@ -20,6 +29,9 @@ body {
   cursor: pointer;
   transform-style: preserve-3d;
   transition: transform 1s;
+  transform-origin: center; /* Ensure flip happens around the center */
+  max-width: 90vw; /* Ensure the card scales down on smaller screens */
+  max-height: 90vh; /* Ensure the card scales down on smaller screens */
 }
 
 /* Flip the card when clicked */
@@ -34,7 +46,7 @@ body {
 
 .cardFront, .cardInside {
   position: absolute;
-  width: 145%;
+  width: 130%;
   height: 125%;
   backface-visibility: hidden; /* Ensure backface is hidden */
 }
@@ -52,6 +64,7 @@ body {
   margin: 30px;
   background-image: linear-gradient(120deg, #ffd856 0%, #f98c6e 100%);
 }
+
 .balloons {
   position: absolute;
 }
@@ -116,7 +129,7 @@ p {
 
 .name {
   position: absolute;
-  left: 220px;
+  left: 185px;
   top: 270px;
   color: #333;
 }
